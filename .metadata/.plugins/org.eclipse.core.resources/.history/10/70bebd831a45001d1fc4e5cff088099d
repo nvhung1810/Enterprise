@@ -1,0 +1,40 @@
+package com.example.One.to.one;
+
+import org.hibernate.Session;
+import org.hibernate.SessionFactory;
+import org.hibernate.cfg.Configuration;
+import org.springframework.boot.SpringApplication;
+import org.springframework.boot.autoconfigure.SpringBootApplication;
+
+import com.example.One.to.one.entity.Instructor;
+import com.example.One.to.one.entity.InstructorDetail;
+
+@SpringBootApplication
+public class Application {
+
+	public static void main(String[] args) {
+		SessionFactory factory = new Configuration().configure("hibernate.cfg.xml")
+				.addAnnotatedClass(Instructor.class)
+				.addAnnotatedClass(InstructorDetail.class)
+				.buildSessionFactory();
+		Session session = factory.getCurrentSession();
+		try {
+//			add thông tin riêng
+			Instructor instructor = 
+					new Instructor("tuantt", "le van", "tuantt@gmail.com");
+			InstructorDetail instructorDetail = 
+					new InstructorDetail("youtube/tuantt", "livestream");
+//			add liên kết
+			instructor.setInstructorDetail(instructorDetail);
+			session.beginTransaction();
+			
+			session.save(instructor);
+			session.getTransaction().commit();
+		}
+		catch (Exception e) {
+			// TODO: handle exception
+			System.out.print("Lỗi");
+		}
+	}
+
+}

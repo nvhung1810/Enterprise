@@ -2,16 +2,7 @@ package com.example.onetomany.Entity;
 
 import java.util.ArrayList;
 import java.util.List;
-import javax.persistence.CascadeType;
-import javax.persistence.Column;
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
-import javax.persistence.JoinColumn;
-import javax.persistence.OneToMany;
-import javax.persistence.OneToOne;
-import javax.persistence.Table;
+import javax.persistence.*;
 
 @Entity
 @Table(name = "instructor")
@@ -26,13 +17,14 @@ public class Instructor {
     private String lastName;
     @Column(name = "email")
     private String email;
-//    KHAI BÁO ONETOONE
+    //    KHAI BÁO ONETOONE
     @OneToOne(cascade = CascadeType.ALL)
     @JoinColumn(name = "instructor_detail_id")
     private InstructorDetail instructorDetail;
 
-//    KHAI BÁO ONETOMANY
-    @OneToMany(mappedBy = "instructor",
+    //    KHAI BÁO ONETOMANY
+    @OneToMany(fetch = FetchType.LAZY,
+            mappedBy = "instructor",
             cascade =
                     {CascadeType.DETACH, CascadeType.MERGE, CascadeType.PERSIST, CascadeType.REFRESH})
 

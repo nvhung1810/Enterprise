@@ -4,6 +4,7 @@ import com.example.onetomany.Entity.Course;
 import com.example.onetomany.Entity.Instructor;
 import com.example.onetomany.Entity.InstructorDetail;
 
+import com.example.onetomany.Entity.Review;
 import org.hibernate.Session;
 import org.hibernate.SessionFactory;
 import org.hibernate.cfg.Configuration;
@@ -17,17 +18,19 @@ public class CreateCoursesDemo {
                 .addAnnotatedClass(Instructor.class)
                 .addAnnotatedClass(InstructorDetail.class)
                 .addAnnotatedClass(Course.class)
+                .addAnnotatedClass(Review.class)
                 .buildSessionFactory();
         Session session = factory.getCurrentSession();
         try {
             session.beginTransaction();
-//            ở cái này phải trỏ đến id của instructorDetail trong database
-//            nếu không sẽ báo lỗi không tồn tại id
-            int idInstructorDetail = 1;
-            Instructor tempInstructor = session.get(Instructor.class, idInstructorDetail);
-            Course tempCourse1 = new Course("Android");
-            tempInstructor.addCourse(tempCourse1);
-            session.save(tempCourse1);
+            Course tempCourse = new Course("Android");
+            tempCourse.addReview(new Review("Good"));
+            tempCourse.addReview(new Review("Great"));
+            tempCourse.addReview(new Review("Best"));
+            System.out.println("Saving the Course...");
+            System.out.println(tempCourse);
+            System.out.println(tempCourse.getReviews());
+            session.save(tempCourse);
             session.getTransaction().commit();
             System.out.println("Done");
         } finally {

@@ -9,10 +9,15 @@
     <fullyQualifiedTypeName name="javax.persistence.OneToOne"/>
     <fullyQualifiedTypeName name="javax.persistence.CascadeType"/>
     <fullyQualifiedTypeName name="javax.persistence.JoinColumn"/>
-    <fullyQualifiedTypeName name="org.hibernate.SessionFactory"/>
-    <fullyQualifiedTypeName name="org.hibernate.cfg.Configuration"/>
-    <fullyQualifiedTypeName name="org.hibernate.Session"/>
     <fullyQualifiedTypeName name="java.lang.System"/>
     <fullyQualifiedTypeName name="com.example.One.to.one.entity.Instructor"/>
     <fullyQualifiedTypeName name="com.example.One.to.one.entity.InstructorDetail"/>
+    <fullyQualifiedTypeName name="org.hibernate.SessionFactory"/>
+    <fullyQualifiedTypeName name="org.hibernate.cfg.Configuration"/>
+    <fullyQualifiedTypeName name="com.example.One.to.one.bi.directional.entity.Instructor"/>
+    <fullyQualifiedTypeName name="com.example.One.to.one.bi.directional.entity.InstructorDetail"/>
+    <fullyQualifiedTypeName name="org.hibernate.Session"/>
+    <fullyQualifiedTypeName name="com.example.one.to.many.entity.Instructor"/>
+    <fullyQualifiedTypeName name="com.example.one.to.many.entity.InstructorDetail"/>
+    <fullyQualifiedTypeName name="com.example.one.to.many.entity.Course"/>
 </qualifiedTypeNameHistroy>

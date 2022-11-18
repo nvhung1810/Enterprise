@@ -1,0 +1,75 @@
+<div *ngIf="viewMode; else editable">
+    <div *ngIf="currentValue.id">
+        <table class="table">
+            <thead>
+                <tr>
+                    <th scope="col">Title</th>
+                    <th scope="col">Description</th>
+                    <th scope="col">Status</th>
+                </tr>
+            </thead>
+            <tbody class="table-group-divider">
+                <tr>
+                    <td>{{ currentValue.title }}</td>
+                    <td> {{ currentValue.description }}</td>
+                    <td>@{{ currentValue.published ? "Published" : "Pending" }}</td>
+                </tr>
+
+            </tbody>
+        </table>
+
+        <button type="button" class="btn btn-warning">
+            <a class="badge badge-warning" routerLink="/values/{{ currentValue.id }}">
+                Edit
+            </a></button>
+
+    </div>
+
+    <div *ngIf="!currentValue">
+        <br />
+        <p>Please click on a Value...</p>
+    </div>
+</div>
+
+<ng-template #editable>
+    <div *ngIf="currentValue.id" class="edit-form">
+        <h4>Value</h4>
+        <form>
+            <div class="form-group">
+                <label for="title">Title</label>
+                <input type="text" class="form-control" id="title" [(ngModel)]="currentValue.title" name="title" />
+            </div>
+            <div class="form-group">
+                <label for="description">Description</label>
+                <input type="text" class="form-control" id="description" [(ngModel)]="currentValue.description"
+                    name="description" />
+            </div>
+
+            <div class="form-group">
+                <label><strong>Status:</strong></label>
+                {{ currentValue.published ? "Published" : "Pending" }}
+            </div>
+        </form>
+
+        <button class="btn btn-primary" *ngIf="currentValue.published" (click)="updatePublished(false)">
+            UnPublish
+        </button>
+        <button *ngIf="!currentValue.published" class="btn btn-primary" (click)="updatePublished(true)">
+            Publish
+        </button>
+
+        <button class="btn btn-danger" (click)="deleteValue()">
+            Delete
+        </button>
+
+        <button type="submit" class="btn btn-success" (click)="updateValue()">
+            Update
+        </button>
+        <p>{{ message }}</p>
+    </div>
+
+    <div *ngIf="!currentValue.id">
+        <br />
+        <p>Cannot access this Value...</p>
+    </div>
+</ng-template>

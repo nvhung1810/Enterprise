@@ -20,12 +20,10 @@ public class GetInstructorCoursesDemo {
         Session session = factory.getCurrentSession();
         try {
             session.beginTransaction();
-//            gán theId bằng 1
-            int theId = 1;
-//            Lấy ra dữ liệu của Instructor có id bằng 1
-            Instructor tempInstructor = session.get(Instructor.class, theId);
-            System.out.println("Instructor: " + tempInstructor);
-            System.out.println("Course: " + tempInstructor.getCourses());
+            int theId = 5;
+            Course theCourse = session.get(Course.class, theId);
+            System.out.println(theCourse);
+            System.out.println(theCourse.getReviews());
             session.getTransaction().commit();
             System.out.println("Done");
         } finally {

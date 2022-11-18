@@ -1,68 +1,94 @@
 package com.example.spring_backend.model;
 
 import javax.persistence.*;
+import java.util.Date;
 
 @Entity
-@Table(name = "models")
-public class Model {
+@Table(name = "vales")
+public class Values {
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
     private long id;
 
-    @Column(name = "title")
-    private String title;
+    @Column(name = "tenhang_hung")
+    private String tenhang_hung;
 
-    @Column(name = "description")
-    private String description;
+    @Column(name = "gia")
+    private Float gia;
 
-    @Column(name = "published")
-    private boolean published;
+    @Column(name = "soluong")
+    private Float soluong;
 
-    public Model() {
+    @Column(name = "ngaynhap")
+    private Date ngaynhap;
+
+    @Column(name = "loaihang")
+    private String loaihang;
+
+    public Values() {
     }
 
-    public Model(String title, String description, boolean published) {
-        this.title = title;
-        this.description = description;
-        this.published = published;
+    public Values(String tenhang_hung, Float gia, Float soluong, Date ngaynhap, String loaihang) {
+        this.tenhang_hung = tenhang_hung;
+        this.gia = gia;
+        this.soluong = soluong;
+        this.ngaynhap = ngaynhap;
+        this.loaihang = loaihang;
     }
 
     public long getId() {
         return id;
     }
 
-    public String getTitle() {
-        return title;
+    public String getTenhang_hung() {
+        return tenhang_hung;
     }
 
-    public void setTitle(String title) {
-        this.title = title;
+    public void setTenhang_hung(String tenhang_hung) {
+        this.tenhang_hung = tenhang_hung;
     }
 
-    public String getDescription() {
-        return description;
+    public Float getGia() {
+        return gia;
     }
 
-    public void setDescription(String description) {
-        this.description = description;
+    public void setGia(Float gia) {
+        this.gia = gia;
     }
 
-    public boolean isPublished() {
-        return published;
+    public Float getSoluong() {
+        return soluong;
     }
 
-    public void setPublished(boolean published) {
-        this.published = published;
+    public void setSoluong(Float soluong) {
+        this.soluong = soluong;
+    }
+
+    public Date getNgaynhap() {
+        return ngaynhap;
+    }
+
+    public void setNgaynhap(Date ngaynhap) {
+        this.ngaynhap = ngaynhap;
+    }
+
+    public String getLoaihang() {
+        return loaihang;
+    }
+
+    public void setLoaihang(String loaihang) {
+        this.loaihang = loaihang;
     }
 
     @Override
     public String toString() {
-        return "Model{" +
+        return "Values{" +
                 "id=" + id +
-                ", title='" + title + '\'' +
-                ", description='" + description + '\'' +
-                ", published=" + published +
+                ", tenhang_hung='" + tenhang_hung + '\'' +
+                ", gia=" + gia +
+                ", soluong=" + soluong +
+                ", ngaynhap=" + ngaynhap +
+                ", loaihang='" + loaihang + '\'' +
                 '}';
     }
-
 }

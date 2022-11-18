@@ -19,7 +19,7 @@ public class DeletetInstructorCoursesDemo {
         Session session = factory.getCurrentSession();
         try {
             session.beginTransaction();
-            int idCourse = 4;
+            int idCourse = 5;
             Course tempCourse = session.get(Course.class, idCourse);
             System.out.println("Deleting Course...: " + tempCourse);
             session.delete(tempCourse);

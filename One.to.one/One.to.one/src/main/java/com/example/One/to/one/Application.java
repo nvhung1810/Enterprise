@@ -20,9 +20,9 @@ public class Application {
 		try {
 //			add thông tin riêng
 			Instructor instructor = 
-					new Instructor("hungnguyen", "Nguyễn Văn", "hungnguyen@gmail.com");
+					new Instructor("Hà", "Nguyễn Thu", "nguyenthuha@gmail.com");
 			InstructorDetail instructorDetail = 
-					new InstructorDetail("youtube/nvhung", "none");
+					new InstructorDetail("youtube/nguyenthuha", "none");
 //			add liên kết
 			instructor.setInstructorDetail(instructorDetail);
 			session.beginTransaction();

@@ -3,7 +3,12 @@ approved.defs.file.last.changed.time=1649720987000
 configurationInstallLocation=/D\:/App/Eclipse/eclipse/
 eclipse.preferences.version=1
 iconcolormode=primary
+<<<<<<< HEAD
 last.download.attempt.time=1666180413043
 lastConfiguration=1666180403577
+=======
+last.download.attempt.time=1665623118008
+lastConfiguration=1665623111338
+>>>>>>> 7b54eddcf9bb1c1532e9beb0fdada9214e73d0d0
 newinstall=true
 workbench.theme=Dark Gray

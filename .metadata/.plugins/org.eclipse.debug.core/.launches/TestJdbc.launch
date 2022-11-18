@@ -11,4 +11,5 @@
     <stringAttribute key="org.eclipse.jdt.launching.MAIN_TYPE" value="com.example.One.to.one.TestJDBC.TestJdbc"/>
     <stringAttribute key="org.eclipse.jdt.launching.MODULE_NAME" value=""/>
     <stringAttribute key="org.eclipse.jdt.launching.PROJECT_ATTR" value="One.to.one"/>
+    <stringAttribute key="org.eclipse.jdt.launching.SOURCE_PATH_PROVIDER" value="org.eclipse.m2e.launchconfig.sourcepathProvider"/>
 </launchConfiguration>

@@ -2,6 +2,7 @@
 <section name="Workbench">
 	<section name="MavenProjectImportWizardPage">
 		<list key="rootDirectory">
+			<item value="D:\Learn\Enterprise\One.to.one"/>
 			<item value="D:\Learn\SpringExample\enterprise\One.to.one\One.to.one"/>
 			<item value="D:\Learn\SpringExample\enterprise\Hibernate.demo\Hibernate.demo"/>
 		</list>

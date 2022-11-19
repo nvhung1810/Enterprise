@@ -7,11 +7,13 @@ import { ValueService } from 'src/app/services/value.service';
     templateUrl: './values-list.component.html',
     styleUrls: ['./values-list.component.scss'],
 })
+
+// Cái này không có gì liên quan tới table
 export class ValuesListComponent implements OnInit {
     values?: Value[];
     currentValue: Value = {};
     currentIndex = -1;
-    title = '';
+    tenhang = '';
 
     constructor(private valueService: ValueService) {}
 
@@ -54,7 +56,7 @@ export class ValuesListComponent implements OnInit {
         this.currentValue = {};
         this.currentIndex = -1;
 
-        this.valueService.findByTitle(this.title).subscribe({
+        this.valueService.findByTitle(this.tenhang).subscribe({
             next: (data) => {
                 this.values = data;
                 console.log(data);

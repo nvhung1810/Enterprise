@@ -3,26 +3,35 @@
         <table class="table">
             <thead>
                 <tr>
-                    <th scope="col">Title</th>
-                    <th scope="col">Description</th>
-                    <th scope="col">Status</th>
+                    <th scope="col">Tên Hàng</th>
+                    <th scope="col">Giá</th>
+                    <th scope="col">Số Lượng</th>
+                    <th scope="col">Ngày Nhập</th>
+                    <th scope="col">Loại Hàng</th>
                 </tr>
             </thead>
             <tbody class="table-group-divider">
                 <tr>
-                    <td>{{ currentValue.title }}</td>
-                    <td> {{ currentValue.description }}</td>
-                    <td>@{{ currentValue.published ? "Published" : "Pending" }}</td>
-                </tr>
+                    <!-- Sửa cái này theo table -->
+                    <td>{{ currentValue.tenhang }}</td>
+                    <td>{{ currentValue.gia_hung }}</td>
+                    <td>{{ currentValue.soluong }}</td>
+                    <td>{{ currentValue.ngaynhap | date: 'fullDate' }}</td>
+                    <td>{{ currentValue.loaihang }}</td>
 
+                    <!-- <td>@{{ currentValue.published ? "Published" : "Pending" }}</td> -->
+                </tr>
             </tbody>
         </table>
 
         <button type="button" class="btn btn-warning">
-            <a class="badge badge-warning" routerLink="/values/{{ currentValue.id }}">
+            <a
+                class="badge badge-warning"
+                routerLink="/values/{{ currentValue.id }}"
+            >
                 Edit
-            </a></button>
-
+            </a>
+        </button>
     </div>
 
     <div *ngIf="!currentValue">
@@ -35,32 +44,85 @@
     <div *ngIf="currentValue.id" class="edit-form">
         <h4>Value</h4>
         <form>
+            <!-- Tên -->
             <div class="form-group">
-                <label for="title">Title</label>
-                <input type="text" class="form-control" id="title" [(ngModel)]="currentValue.title" name="title" />
+                <label for="tenhang">Tên Hàng</label>
+                <input
+                    type="text"
+                    class="form-control"
+                    id="tenhang"
+                    [(ngModel)]="currentValue.tenhang"
+                    name="tenhang"
+                />
             </div>
+            <!-- Giá -->
             <div class="form-group">
-                <label for="description">Description</label>
-                <input type="text" class="form-control" id="description" [(ngModel)]="currentValue.description"
-                    name="description" />
+                <label for="gia_hung">Giá</label>
+                <input
+                    type="text"
+                    class="form-control"
+                    id="gia_hung"
+                    [(ngModel)]="currentValue.gia_hung"
+                    name="gia_hung"
+                />
+            </div>
+            <!-- Số lượng -->
+            <div class="form-group">
+                <label for="soluong">Số Lượng</label>
+                <input
+                    type="text"
+                    class="form-control"
+                    id="soluong"
+                    [(ngModel)]="currentValue.soluong"
+                    name="soluong"
+                />
+            </div>
+            <!-- Ngày Nhập -->
+            <div class="form-group">
+                <label for="ngaynhap">Ngày Nhập</label>
+                <input
+                    type="text"
+                    class="form-control"
+                    id="ngaynhap"
+                    [(ngModel)]="currentValue.ngaynhap"
+                    name="ngaynhap"
+                />
+            </div>
+            <!-- Loại Hàng -->
+            <div class="form-group">
+                <label for="loaihang">Loại Hàng</label>
+                <input
+                    type="text"
+                    class="form-control"
+                    id="loaihang"
+                    [(ngModel)]="currentValue.loaihang"
+                    name="loaihang"
+                />
             </div>
 
-            <div class="form-group">
+            <!-- <div class="form-group">
                 <label><strong>Status:</strong></label>
-                {{ currentValue.published ? "Published" : "Pending" }}
-            </div>
+                {{ currentValue.published ? 'Published' : 'Pending' }}
+            </div> -->
         </form>
 
-        <button class="btn btn-primary" *ngIf="currentValue.published" (click)="updatePublished(false)">
+        <!-- Nút cập nhật trạng thái -->
+        <!-- <button
+            class="btn btn-primary"
+            *ngIf="currentValue.published"
+            (click)="updatePublished(false)"
+        >
             UnPublish
         </button>
-        <button *ngIf="!currentValue.published" class="btn btn-primary" (click)="updatePublished(true)">
+        <button
+            *ngIf="!currentValue.published"
+            class="btn btn-primary"
+            (click)="updatePublished(true)"
+        >
             Publish
-        </button>
+        </button> -->
 
-        <button class="btn btn-danger" (click)="deleteValue()">
-            Delete
-        </button>
+        <button class="btn btn-danger" (click)="deleteValue()">Delete</button>
 
         <button type="submit" class="btn btn-success" (click)="updateValue()">
             Update

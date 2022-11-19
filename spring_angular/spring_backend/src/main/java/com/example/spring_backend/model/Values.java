@@ -10,11 +10,11 @@ public class Values {
     @GeneratedValue(strategy = GenerationType.AUTO)
     private long id;
 
-    @Column(name = "tenhang_hung")
-    private String tenhang_hung;
+    @Column(name = "tenhang")
+    private String tenhang;
 
-    @Column(name = "gia")
-    private Float gia;
+    @Column(name = "gia_hung")
+    private Float gia_hung;
 
     @Column(name = "soluong")
     private Float soluong;
@@ -28,9 +28,9 @@ public class Values {
     public Values() {
     }
 
-    public Values(String tenhang_hung, Float gia, Float soluong, Date ngaynhap, String loaihang) {
-        this.tenhang_hung = tenhang_hung;
-        this.gia = gia;
+    public Values(String tenhang, Float gia_hung, Float soluong, Date ngaynhap, String loaihang) {
+        this.tenhang = tenhang;
+        this.gia_hung = gia_hung;
         this.soluong = soluong;
         this.ngaynhap = ngaynhap;
         this.loaihang = loaihang;
@@ -40,20 +40,20 @@ public class Values {
         return id;
     }
 
-    public String getTenhang_hung() {
-        return tenhang_hung;
+    public String getTenhang() {
+        return tenhang;
     }
 
-    public void setTenhang_hung(String tenhang_hung) {
-        this.tenhang_hung = tenhang_hung;
+    public void setTenhang(String tenhang) {
+        this.tenhang = tenhang;
     }
 
-    public Float getGia() {
-        return gia;
+    public Float getGia_hung() {
+        return gia_hung;
     }
 
-    public void setGia(Float gia) {
-        this.gia = gia;
+    public void setGia_hung(Float gia_hung) {
+        this.gia_hung = gia_hung;
     }
 
     public Float getSoluong() {
@@ -84,8 +84,8 @@ public class Values {
     public String toString() {
         return "Values{" +
                 "id=" + id +
-                ", tenhang_hung='" + tenhang_hung + '\'' +
-                ", gia=" + gia +
+                ", tenhang='" + tenhang + '\'' +
+                ", gia_hung=" + gia_hung +
                 ", soluong=" + soluong +
                 ", ngaynhap=" + ngaynhap +
                 ", loaihang='" + loaihang + '\'' +

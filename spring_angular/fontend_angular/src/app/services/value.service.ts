@@ -36,7 +36,8 @@ export class ValueService {
         return this.http.delete(baseUrl);
     }
 
-    findByTitle(title: any): Observable<Value[]> {
-        return this.http.get<Value[]>(`${baseUrl}?title=${title}`);
+    findByTitle(sreachValue: any): Observable<Value[]> {
+        // Sửa cái tenhang theo giá trị cần tìm kiếm
+        return this.http.get<Value[]>(`${baseUrl}?tenhang=${sreachValue}`);
     }
 }

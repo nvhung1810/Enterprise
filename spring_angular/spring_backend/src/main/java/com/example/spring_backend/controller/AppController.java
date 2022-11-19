@@ -31,20 +31,19 @@ public class AppController {
 
     @GetMapping("/values")
 //    Sửa string title theo giá tị cần tìm kiếm
-    public ResponseEntity<List<Values>> getAllValues(@RequestParam(required = false) String title) {
+    public ResponseEntity<List<Values>> getAllValues(@RequestParam(required = false) String name) {
         try {
             List<Values> values = new ArrayList<>();
 
-            if (title == null)
+            if (name == null)
                 values.addAll(valuesRepository.findAll());
             else
 //                sửa theo findby... ở bên repository
-                values.addAll(valuesRepository.findByTenhang_hungContaining(title));
+                values.addAll(valuesRepository.findByTenhangContaining(name));
 
             if (values.isEmpty()) {
                 return new ResponseEntity<>(HttpStatus.NO_CONTENT);
             }
-
             return new ResponseEntity<>(values, HttpStatus.OK);
         } catch (Exception e) {
             return new ResponseEntity<>(null, HttpStatus.INTERNAL_SERVER_ERROR);
@@ -54,7 +53,6 @@ public class AppController {
     @GetMapping("/values/{id}")
     public ResponseEntity<Values> getValueById(@PathVariable("id") long id) {
         Optional<Values> valueData = valuesRepository.findById(id);
-
         if (valueData.isPresent()) {
             return new ResponseEntity<>(valueData.get(), HttpStatus.OK);
         } else {
@@ -68,8 +66,8 @@ public class AppController {
 //            sửa get theo table
             Values _value = valuesRepository
                     .save(new Values(
-                            value.getTenhang_hung(),
-                            value.getGia(),
+                            value.getTenhang(),
+                            value.getGia_hung(),
                             value.getSoluong(),
                             value.getNgaynhap(),
                             value.getLoaihang()));
@@ -86,8 +84,8 @@ public class AppController {
         if (valueData.isPresent()) {
             Values _value = valueData.get();
 //            sửa get det theo table
-            _value.setTenhang_hung(value.getTenhang_hung());
-            _value.setGia(value.getGia());
+            _value.setTenhang(value.getTenhang());
+            _value.setGia_hung(value.getGia_hung());
             _value.setSoluong(value.getSoluong());
             _value.setNgaynhap(value.getNgaynhap());
             _value.setLoaihang(value.getLoaihang());

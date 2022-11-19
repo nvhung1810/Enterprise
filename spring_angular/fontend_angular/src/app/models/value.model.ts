@@ -1,9 +1,9 @@
 export class Value {
     id?: any;
-    tenhang_hung?: string;
-    gia?: number;
+    tenhang?: string;
+    gia_hung?: number;
     soluong?: number;
-    ngaynhap?: Date;
+    ngaynhap?: string;
     loaihang?: string;
     // ispub?: boolean;
 }

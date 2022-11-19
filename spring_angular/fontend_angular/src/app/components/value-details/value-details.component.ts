@@ -13,9 +13,11 @@ export class ValueDetailsComponent implements OnInit {
     @Input() viewMode = false;
 
     @Input() currentValue: Value = {
-        title: '',
-        description: '',
-        published: false,
+        tenhang: '',
+        gia_hung: 0,
+        soluong: 0,
+        ngaynhap: '',
+        loaihang: '',
     };
 
     message = '';
@@ -45,23 +47,28 @@ export class ValueDetailsComponent implements OnInit {
 
     updatePublished(status: boolean): void {
         const data = {
-            title: this.currentValue.title,
-            description: this.currentValue.description,
-            published: status,
+            // sủa cái này theo table
+            tenhang: this.currentValue.tenhang,
+            gia_hung: this.currentValue.gia_hung,
+            soluong: this.currentValue.soluong,
+            ngaynhap: this.currentValue.ngaynhap,
+            loaihang: this.currentValue.loaihang,
+
+            // published: status,
         };
 
         this.message = '';
 
-        this.valueService.update(this.currentValue.id, data).subscribe({
-            next: (res) => {
-                console.log(res);
-                this.currentValue.published = status;
-                this.message = res.message
-                    ? res.message
-                    : 'The status was updated successfully!';
-            },
-            error: (e) => console.error(e),
-        });
+        // this.valueService.update(this.currentValue.id, data).subscribe({
+        //     next: (res) => {
+        //         console.log(res);
+        //         this.currentValue.published = status;
+        //         this.message = res.message
+        //             ? res.message
+        //             : 'The status was updated successfully!';
+        //     },
+        //     error: (e) => console.error(e),
+        // });
     }
 
     updateValue(): void {

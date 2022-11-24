@@ -31,15 +31,18 @@ public class AppController {
 
     @GetMapping("/values")
 //    Sửa string title theo giá tị cần tìm kiếm
-    public ResponseEntity<List<Values>> getAllValues(@RequestParam(required = false) String name) {
+    public ResponseEntity<List<Values>> getAllValues(@RequestParam(required = false) String tenhang) {
         try {
             List<Values> values = new ArrayList<>();
 
-            if (name == null)
+            if (tenhang == null)
                 values.addAll(valuesRepository.findAll());
             else
 //                sửa theo findby... ở bên repository
-                values.addAll(valuesRepository.findByTenhangContaining(name));
+//                Cái tenhang ở  findByTenhangContaining(tenhang));
+//                là phải sửa theo cái String bên Repository
+//                VD: List<Values> findByTenhangContaining(String tenhang); thì là tenhang
+                values.addAll(valuesRepository.findByTenhangContaining(tenhang));
 
             if (values.isEmpty()) {
                 return new ResponseEntity<>(HttpStatus.NO_CONTENT);
@@ -49,7 +52,7 @@ public class AppController {
             return new ResponseEntity<>(null, HttpStatus.INTERNAL_SERVER_ERROR);
         }
     }
-
+//  Lấy dữ liệu theo id
     @GetMapping("/values/{id}")
     public ResponseEntity<Values> getValueById(@PathVariable("id") long id) {
         Optional<Values> valueData = valuesRepository.findById(id);
@@ -59,7 +62,7 @@ public class AppController {
             return new ResponseEntity<>(HttpStatus.NOT_FOUND);
         }
     }
-
+//  Đẩy dữ liệu lên
     @PostMapping("/values")
     public ResponseEntity<Values> createValue(@RequestBody Values value) {
         try {
@@ -76,7 +79,7 @@ public class AppController {
             return new ResponseEntity<>(null, HttpStatus.INTERNAL_SERVER_ERROR);
         }
     }
-
+//  Sủa dữ liệu
     @PutMapping("/values/{id}")
     public ResponseEntity<Values> updateValue(@PathVariable("id") long id, @RequestBody Values value) {
         Optional<Values> valueData = valuesRepository.findById(id);
@@ -96,7 +99,7 @@ public class AppController {
             return new ResponseEntity<>(HttpStatus.NOT_FOUND);
         }
     }
-
+//  Xóa dữ liệu
     @DeleteMapping("/values/{id}")
     public ResponseEntity<HttpStatus> deleteValue(@PathVariable("id") long id) {
         try {
@@ -106,7 +109,7 @@ public class AppController {
             return new ResponseEntity<>(HttpStatus.INTERNAL_SERVER_ERROR);
         }
     }
-
+//  Xóa toàn bộ dữ liệu
     @DeleteMapping("/values")
     public ResponseEntity<HttpStatus> deleteAllValues() {
         try {

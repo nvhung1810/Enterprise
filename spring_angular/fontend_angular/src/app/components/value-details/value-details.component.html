@@ -3,21 +3,22 @@
         <table class="table">
             <thead>
                 <tr>
-                    <th scope="col">Tên Hàng</th>
-                    <th scope="col">Giá</th>
-                    <th scope="col">Số Lượng</th>
-                    <th scope="col">Ngày Nhập</th>
-                    <th scope="col">Loại Hàng</th>
+                    <th scope="col">Tên Giếng</th>
+                    <th scope="col">Vị trí x</th>
+                    <th scope="col">Vị trí y</th>
+                    <th scope="col">Độ sâu</th>
+                    <th scope="col">Địa danh</th>
                 </tr>
             </thead>
             <tbody class="table-group-divider">
                 <tr>
                     <!-- Sửa cái này theo table -->
-                    <td>{{ currentValue.tenhang }}</td>
-                    <td>{{ currentValue.gia_hung }}</td>
-                    <td>{{ currentValue.soluong }}</td>
-                    <td>{{ currentValue.ngaynhap | date: 'fullDate' }}</td>
-                    <td>{{ currentValue.loaihang }}</td>
+                    <td>{{ currentValue.tengieng }}</td>
+                    <td>{{ currentValue.vitrix }}</td>
+                    <td>{{ currentValue.vitriy }}</td>
+                    <td>{{ currentValue.dosau }}</td>
+                    <td>{{ currentValue.diadanh }}</td>
+                    <td></td>
 
                     <!-- <td>@{{ currentValue.published ? "Published" : "Pending" }}</td> -->
                 </tr>
@@ -25,10 +26,7 @@
         </table>
 
         <button type="button" class="btn btn-warning">
-            <a
-                class="badge badge-warning"
-                routerLink="/values/{{ currentValue.id }}"
-            >
+            <a class="badge badge-warning" routerLink="/values/{{ currentValue.id }}">
                 Edit
             </a>
         </button>
@@ -46,58 +44,30 @@
         <form>
             <!-- Tên -->
             <div class="form-group">
-                <label for="tenhang">Tên Hàng</label>
-                <input
-                    type="text"
-                    class="form-control"
-                    id="tenhang"
-                    [(ngModel)]="currentValue.tenhang"
-                    name="tenhang"
-                />
+                <label for="tengieng">Tên Giếng</label>
+                <input type="text" class="form-control" id="tengieng" [(ngModel)]="currentValue.tengieng"
+                    name="tengieng" />
             </div>
             <!-- Giá -->
             <div class="form-group">
-                <label for="gia_hung">Giá</label>
-                <input
-                    type="text"
-                    class="form-control"
-                    id="gia_hung"
-                    [(ngModel)]="currentValue.gia_hung"
-                    name="gia_hung"
-                />
+                <label for="vitrix">Vị trí x</label>
+                <input type="text" class="form-control" id="vitrix" [(ngModel)]="currentValue.vitrix" name="vitrix" />
             </div>
             <!-- Số lượng -->
             <div class="form-group">
-                <label for="soluong">Số Lượng</label>
-                <input
-                    type="text"
-                    class="form-control"
-                    id="soluong"
-                    [(ngModel)]="currentValue.soluong"
-                    name="soluong"
-                />
+                <label for="vitriy">Vị trí y</label>
+                <input type="text" class="form-control" id="vitriy" [(ngModel)]="currentValue.vitriy" name="vitriy" />
             </div>
             <!-- Ngày Nhập -->
             <div class="form-group">
-                <label for="ngaynhap">Ngày Nhập</label>
-                <input
-                    type="text"
-                    class="form-control"
-                    id="ngaynhap"
-                    [(ngModel)]="currentValue.ngaynhap"
-                    name="ngaynhap"
-                />
+                <label for="dosau">Độ sâu</label>
+                <input type="text" class="form-control" id="dosau" [(ngModel)]="currentValue.dosau" name="dosau" />
             </div>
             <!-- Loại Hàng -->
             <div class="form-group">
-                <label for="loaihang">Loại Hàng</label>
-                <input
-                    type="text"
-                    class="form-control"
-                    id="loaihang"
-                    [(ngModel)]="currentValue.loaihang"
-                    name="loaihang"
-                />
+                <label for="diadanh">Địa danh</label>
+                <input type="text" class="form-control" id="diadanh" [(ngModel)]="currentValue.diadanh"
+                    name="diadanh" />
             </div>
 
             <!-- <div class="form-group">

@@ -1,61 +1,32 @@
 <div>
-    <div class="submit-form">
+    <div class="submit-form col-md-6">
         <div *ngIf="!submitted">
             <div class="form-group f">
-                <label class="l" for="tenhang">Tên Hàng</label>
-                <input
-                    type="text"
-                    class="form-control"
-                    id="tenhang"
-                    required
-                    [(ngModel)]="value.tenhang"
-                    name="tenhang"
-                />
+                <label class="l" for="tengieng">Tên Giếng</label>
+                <input type="text" class="form-control" id="tengieng" required [(ngModel)]="value.tengieng"
+                    name="tengieng" />
             </div>
 
             <div class="form-group f">
-                <label class="l" for="gia_hung">Giá Hàng</label>
-                <input
-                    class="form-control"
-                    id="gia_hung"
-                    required
-                    [(ngModel)]="value.gia_hung"
-                    name="gia_hung"
-                />
+                <label class="l" for="vitrix">Vị trí x</label>
+                <input class="form-control" id="vitrix" type="number" required [(ngModel)]="value.vitrix"
+                    name="vitrix" />
             </div>
 
             <div class="form-group f">
-                <label class="l" for="soluong">Số Lượng</label>
-                <input
-                    class="form-control"
-                    id="soluong"
-                    required
-                    [(ngModel)]="value.soluong"
-                    name="soluong"
-                />
+                <label class="l" for="vitriy">Vị trí y</label>
+                <input class="form-control" id="vitriy" type="number" required [(ngModel)]="value.vitriy"
+                    name="vitriy" />
             </div>
 
             <div class="form-group f">
-                <label class="l" for="ngaynhap">Ngày Nhập</label>
-                <input
-                    class="form-control"
-                    id="ngaynhap"
-                    type="date"
-                    required
-                    [(ngModel)]="value.ngaynhap"
-                    name="ngaynhap"
-                />
+                <label class="l" for="dosau">Độ sâu</label>
+                <input class="form-control" id="dosau" type="number" required [(ngModel)]="value.dosau" name="dosau" />
             </div>
 
             <div class="form-group f">
-                <label class="l" for="loaihang">Loại Hàng</label>
-                <input
-                    class="form-control"
-                    id="loaihang"
-                    required
-                    [(ngModel)]="value.loaihang"
-                    name="loaihang"
-                />
+                <label class="l" for="diadanh">Địa Danh</label>
+                <input class="form-control" id="diadanh" required [(ngModel)]="value.diadanh" name="diadanh" />
             </div>
 
             <button (click)="saveTutorial()" class="btn btn-success b">

@@ -9,11 +9,11 @@ import { ValueService } from 'src/app/services/value.service';
 })
 export class AddValueComponent implements OnInit {
     value: Value = {
-        tenhang: '',
-        gia_hung: 0,
-        soluong: 0,
-        ngaynhap: '',
-        loaihang: '',
+        tengieng: '',
+        vitrix: 0,
+        vitriy: 0,
+        dosau: 0,
+        diadanh: '',
     };
     submitted = false;
 
@@ -21,11 +21,11 @@ export class AddValueComponent implements OnInit {
 
     saveTutorial(): void {
         const data = {
-            tenhang: this.value.tenhang,
-            gia_hung: this.value.gia_hung,
-            soluong: this.value.soluong,
-            ngaynhap: this.value.ngaynhap,
-            loaihang: this.value.loaihang,
+            tengieng: this.value.tengieng,
+            vitrix: this.value.vitrix,
+            vitriy: this.value.vitriy,
+            dosau: this.value.dosau,
+            diadanh: this.value.diadanh,
         };
 
         this.valueService.create(data).subscribe({
@@ -40,11 +40,11 @@ export class AddValueComponent implements OnInit {
     newTutorial(): void {
         this.submitted = false;
         this.value = {
-            tenhang: '',
-            gia_hung: 0,
-            soluong: 0,
-            ngaynhap: '',
-            loaihang: '',
+            tengieng: '',
+            vitrix: 0,
+            vitriy: 0,
+            dosau: 0,
+            diadanh: '',
         };
     }
 

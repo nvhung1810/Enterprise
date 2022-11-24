@@ -1,22 +1,56 @@
-<div>
-  <nav class="navbar navbar-expand-lg bg-light">
-    <a href="#" class="navbar-brand">
-      <img class="img" src="https://res.cloudinary.com/nvhung1810/image/upload/v1668330027/enc/Layer_1_hosdvs.png"
-        alt="">
-    </a>
-    <div class="navbar-nav mr-auto">
-      <li class="nav-item">
-        <a routerLink="values" class="nav-link">Tutorials</a>
-      </li>
-      <li class="nav-item">
-        <a routerLink="add" class="nav-link">Add</a>
-      </li>
-    </div>
-  </nav>
+<div class="wrapper">
+  <div class="row">
+    <div class="col-sm-2">
+      <nav style="
+      height: 584px;
+      align-items: flex-start; background-color: #f5f5f5;" class="navbar navbar-vertical navbar-expand-lg">
 
-  <div class="container mt-3">
-    <router-outlet></router-outlet>
+        <div class="container-fluidd">
+          <a class="navbar-brand" href="./index.html">
+            <img src="https://res.cloudinary.com/nvhung1810/image/upload/v1668330027/enc/Layer_1_hosdvs.png" style="
+            height: 62px;
+        "> </a>
+          <div class="collapse navbar-collapse" id="sidenavCollapse">
+            <ul class="navbar-nav mb-lg-7">
+              <li class="nav-item dropdown" style="margin: 20px;">
+                <a class="nav-link active collapsed" href="#dashboardsCollapse" data-bs-toggle="collapse" role="button"
+                  style="color: #333;" aria-expanded="false" aria-controls="dashboardsCollapse">
+                  <svg viewBox="0 0 24 24" class="nav-link-icon" height="18" width="18"
+                    xmlns="http://www.w3.org/2000/svg">
+                    <path d="M3.753,13.944v8.25h6v-6a1.5,1.5,0,0,1,1.5-1.5h1.5a1.5,1.5,0,0,1,1.5,1.5v6h6v-8.25"
+                      fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"
+                      stroke-width="1.5"></path>
+                    <path d="M.753,12.444,10.942,2.255a1.5,1.5,0,0,1,2.122,0L23.253,12.444" fill="none"
+                      stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5"></path>
+                  </svg>
+                  <span style="
+                  margin-left: 12px;
+              ">Sản Phẩm</span>
+                </a>
+                <div class="collapse" id="dashboardsCollapse">
+                  <ul class="nav flex-column">
+                    <li class="nav-item">
+                      <a routerLink="values" routerLinkActive="active-link" class="nav-link"
+                        style="justify-content: start;">
+                        Danh sách
+                      </a>
+                    </li>
+                    <li class="nav-item">
+                      <a routerLink="add" routerLinkActive="active-link" class="nav-link"
+                        style="justify-content: start;">
+                        Thêm TT
+                      </a>
+                    </li>
+                  </ul>
+                </div>
+              </li>
+            </ul>
+          </div>
+        </div>
+      </nav>
+    </div>
+    <div class="col-sm-10">
+      <router-outlet></router-outlet>
+    </div>
   </div>
 </div>
-
-<!-- Cái này không cần sửa gì -->

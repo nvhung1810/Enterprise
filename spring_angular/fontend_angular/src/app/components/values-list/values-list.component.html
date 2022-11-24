@@ -1,44 +1,31 @@
 <div class="list row x">
     <div class="col-md-8">
         <div class="input-group mb-3">
-            <input
-                type="text"
-                class="form-control"
-                placeholder="Tìm kiếm thông tin"
-                [(ngModel)]="tenhang"
-            />
+            <input type="text" class="form-control" placeholder="Tìm kiếm thông tin" [(ngModel)]="tengieng" />
             <div class="input-group-append">
-                <button
-                    class="btn btn-outline-secondary"
-                    (click)="searchTitle()"
-                >
+                <button class="btn btn-outline-secondary" (click)="searchTitle()">
                     Tìm
                 </button>
             </div>
         </div>
     </div>
-    <div class="col-md-6">
-        <h4>DANH SÁCH THÔNG TIN</h4>
-        <ul class="list-group">
-            <li
-                class="list-group-item"
-                *ngFor="let values of values; let i = index"
-                [class.active]="i == currentIndex"
-                (click)="setActiveValue(values, i)"
-            >
-                <!-- sủa cái này theo name của bảng vd: bảng nhân viên -> tên nhân viên -->
-                {{ values.tenhang }}
-            </li>
-        </ul>
+    <h4 style="margin-bottom: 32px;">DANH SÁCH THÔNG TIN</h4>
+    <div class="abc">
+        <div class="col-md-3">
+            <ul class="list-group">
+                <li class="list-group-item" *ngFor="let values of values; let i = index"
+                    [class.active]="i == currentIndex" (click)="setActiveValue(values, i)">
+                    <!-- sủa cái này theo name của bảng vd: bảng nhân viên -> tên nhân viên -->
+                    {{ values.tengieng }}
+                </li>
+            </ul>
 
-        <button class="m-3 btn btn-sm btn-danger" (click)="removeAllValues()">
-            Remove All
-        </button>
-    </div>
-    <div class="col-md-6">
-        <app-value-details
-            [viewMode]="true"
-            [currentValue]="currentValue"
-        ></app-value-details>
+            <button class="m-3 btn btn-sm btn-danger" (click)="removeAllValues()">
+                Remove All
+            </button>
+        </div>
+        <div class="col-md-9 ml">
+            <app-value-details [viewMode]="true" [currentValue]="currentValue"></app-value-details>
+        </div>
     </div>
 </div>

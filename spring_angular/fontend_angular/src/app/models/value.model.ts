@@ -1,10 +1,10 @@
 export class Value {
     id?: any;
-    tenhang?: string;
-    gia_hung?: number;
-    soluong?: number;
-    ngaynhap?: string;
-    loaihang?: string;
+    tengieng?: string;
+    vitrix?: number;
+    vitriy?: number;
+    dosau?: number;
+    diadanh?: string;
     // ispub?: boolean;
 }
 

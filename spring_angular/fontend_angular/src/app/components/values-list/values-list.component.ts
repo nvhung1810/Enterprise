@@ -13,7 +13,7 @@ export class ValuesListComponent implements OnInit {
     values?: Value[];
     currentValue: Value = {};
     currentIndex = -1;
-    tenhang = '';
+    tengieng = '';
 
     constructor(private valueService: ValueService) {}
 
@@ -25,7 +25,6 @@ export class ValuesListComponent implements OnInit {
         this.valueService.getAll().subscribe({
             next: (data) => {
                 this.values = data;
-                console.log(data);
             },
             error: (e) => console.error(e),
         });
@@ -56,10 +55,9 @@ export class ValuesListComponent implements OnInit {
         this.currentValue = {};
         this.currentIndex = -1;
 
-        this.valueService.findByTitle(this.tenhang).subscribe({
+        this.valueService.findByTitle(this.tengieng).subscribe({
             next: (data) => {
                 this.values = data;
-                console.log(data);
             },
             error: (e) => console.error(e),
         });

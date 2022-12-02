@@ -11,13 +11,14 @@ import { Value } from 'src/app/models/value.model';
 })
 export class ValueDetailsComponent implements OnInit {
     @Input() viewMode = false;
+    thanhtien: number = 0;
 
     @Input() currentValue: Value = {
-        tenhang: '',
-        gia_hung: 0,
-        soluong: 0,
-        ngaynhap: '',
-        loaihang: '',
+        tengieng: '',
+        vitrix: 0,
+        vitriy: 0,
+        dosau: 0,
+        diadanh: '',
     };
 
     message = '';
@@ -39,7 +40,6 @@ export class ValueDetailsComponent implements OnInit {
         this.valueService.get(id).subscribe({
             next: (data) => {
                 this.currentValue = data;
-                console.log(data);
             },
             error: (e) => console.error(e),
         });
@@ -48,11 +48,11 @@ export class ValueDetailsComponent implements OnInit {
     updatePublished(status: boolean): void {
         const data = {
             // sủa cái này theo table
-            tenhang: this.currentValue.tenhang,
-            gia_hung: this.currentValue.gia_hung,
-            soluong: this.currentValue.soluong,
-            ngaynhap: this.currentValue.ngaynhap,
-            loaihang: this.currentValue.loaihang,
+            tengieng: this.currentValue.tengieng,
+            vitrix: this.currentValue.vitrix,
+            vitriy: this.currentValue.vitriy,
+            dosau: this.currentValue.dosau,
+            diadanh: this.currentValue.diadanh,
 
             // published: status,
         };

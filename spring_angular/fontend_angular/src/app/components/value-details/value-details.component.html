@@ -40,38 +40,37 @@
 
 <ng-template #editable>
     <div *ngIf="currentValue.id" class="edit-form">
-        <h4>Value</h4>
         <form>
             <!-- Tên -->
-            <div class="form-group">
-                <label for="tengieng">Tên Giếng</label>
+            <div class="form-group" style="margin: 20px 0;">
+                <label style="margin-bottom: 20px;" for="tengieng">Tên Giếng</label>
                 <input type="text" class="form-control" id="tengieng" [(ngModel)]="currentValue.tengieng"
                     name="tengieng" />
             </div>
             <!-- Giá -->
-            <div class="form-group">
-                <label for="vitrix">Vị trí x</label>
+            <div class="form-group" style="margin: 20px 0;">
+                <label style="margin-bottom: 20px;" for="vitrix">Vị trí x</label>
                 <input type="text" class="form-control" id="vitrix" [(ngModel)]="currentValue.vitrix" name="vitrix" />
             </div>
             <!-- Số lượng -->
-            <div class="form-group">
-                <label for="vitriy">Vị trí y</label>
+            <div class="form-group" style="margin: 20px 0;">
+                <label style="margin-bottom: 20px;" for="vitriy">Vị trí y</label>
                 <input type="text" class="form-control" id="vitriy" [(ngModel)]="currentValue.vitriy" name="vitriy" />
             </div>
             <!-- Ngày Nhập -->
-            <div class="form-group">
-                <label for="dosau">Độ sâu</label>
+            <div class="form-group" style="margin: 20px 0;">
+                <label style="margin-bottom: 20px;" for="dosau">Độ sâu</label>
                 <input type="text" class="form-control" id="dosau" [(ngModel)]="currentValue.dosau" name="dosau" />
             </div>
             <!-- Loại Hàng -->
-            <div class="form-group">
-                <label for="diadanh">Địa danh</label>
+            <div class="form-group" style="margin: 20px 0;">
+                <label style="margin-bottom: 20px;" for="diadanh">Địa danh</label>
                 <input type="text" class="form-control" id="diadanh" [(ngModel)]="currentValue.diadanh"
                     name="diadanh" />
             </div>
 
-            <!-- <div class="form-group">
-                <label><strong>Status:</strong></label>
+            <!-- <div class="form-group" style="margin: 20px 0;">
+                <label style="margin-bottom: 20px;"><strong>Status:</strong></label>
                 {{ currentValue.published ? 'Published' : 'Pending' }}
             </div> -->
         </form>
@@ -92,7 +91,7 @@
             Publish
         </button> -->
 
-        <button class="btn btn-danger" (click)="deleteValue()">Delete</button>
+        <button class="btn btn-danger" (click)="deleteValue()" style="margin-right: 48px">Delete</button>
 
         <button type="submit" class="btn btn-success" (click)="updateValue()">
             Update

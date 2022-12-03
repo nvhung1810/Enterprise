@@ -1,0 +1,73 @@
+<div>
+    <div class="submit-form">
+        <div *ngIf="!submitted">
+            <div class="form-group f">
+                <label class="l" for="tenhang">Tên Hàng</label>
+                <input
+                    type="text"
+                    class="form-control"
+                    id="tenhang"
+                    required
+                    [(ngModel)]="value.tenhang"
+                    name="tenhang"
+                />
+            </div>
+
+            <div class="form-group f">
+                <label class="l" for="gia_hung">Giá Hàng</label>
+                <input
+                    class="form-control"
+                    id="gia_hung"
+                    required
+                    [(ngModel)]="value.gia_hung"
+                    name="gia_hung"
+                />
+            </div>
+
+            <div class="form-group f">
+                <label class="l" for="soluong">Số Lượng</label>
+                <input
+                    class="form-control"
+                    id="soluong"
+                    required
+                    [(ngModel)]="value.soluong"
+                    name="soluong"
+                />
+            </div>
+
+            <div class="form-group f">
+                <label class="l" for="ngaynhap">Ngày Nhập</label>
+                <input
+                    class="form-control"
+                    id="ngaynhap"
+                    type="date"
+                    required
+                    [(ngModel)]="value.ngaynhap"
+                    name="ngaynhap"
+                />
+            </div>
+
+            <div class="form-group f">
+                <label class="l" for="loaihang">Loại Hàng</label>
+                <input
+                    class="form-control"
+                    id="loaihang"
+                    required
+                    [(ngModel)]="value.loaihang"
+                    name="loaihang"
+                />
+            </div>
+
+            <button (click)="saveTutorial()" class="btn btn-success b">
+                THÊM
+            </button>
+        </div>
+
+        <div *ngIf="submitted">
+            <h4>Thêm dữ liệu thành công!</h4>
+            <button class="btn btn-success" (click)="newTutorial()">
+                THÊM DỮ LIỆU MỚI
+            </button>
+        </div>
+    </div>
+</div>

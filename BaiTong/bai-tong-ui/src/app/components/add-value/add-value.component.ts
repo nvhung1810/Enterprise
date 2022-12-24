@@ -9,11 +9,9 @@ import { ValueService } from 'src/app/services/value.service';
 })
 export class AddValueComponent implements OnInit {
     value: Value = {
-        tenhang: '',
-        gia_hung: 0,
-        soluong: 0,
-        ngaynhap: '',
-        loaihang: '',
+        hoten: '',
+        tenbomon: '',
+        hesoluong: 0,
     };
     submitted = false;
 
@@ -21,11 +19,9 @@ export class AddValueComponent implements OnInit {
 
     saveTutorial(): void {
         const data = {
-            tenhang: this.value.tenhang,
-            gia_hung: this.value.gia_hung,
-            soluong: this.value.soluong,
-            ngaynhap: this.value.ngaynhap,
-            loaihang: this.value.loaihang,
+            hoten: this.value.hoten,
+            tenbomon: this.value.tenbomon,
+            hesoluong: this.value.hesoluong,
         };
 
         this.valueService.create(data).subscribe({
@@ -40,11 +36,9 @@ export class AddValueComponent implements OnInit {
     newTutorial(): void {
         this.submitted = false;
         this.value = {
-            tenhang: '',
-            gia_hung: 0,
-            soluong: 0,
-            ngaynhap: '',
-            loaihang: '',
+            hoten: '',
+            tenbomon: '',
+            hesoluong: 0,
         };
     }
 

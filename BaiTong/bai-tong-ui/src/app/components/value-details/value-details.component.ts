@@ -13,11 +13,9 @@ export class ValueDetailsComponent implements OnInit {
     @Input() viewMode = false;
 
     @Input() currentValue: Value = {
-        tenhang: '',
-        gia_hung: 0,
-        soluong: 0,
-        ngaynhap: '',
-        loaihang: '',
+        hoten: '',
+        tenbomon: '',
+        hesoluong: 0,
     };
 
     message = '';
@@ -39,8 +37,8 @@ export class ValueDetailsComponent implements OnInit {
         this.valueService.get(id).subscribe({
             next: (data) => {
                 this.currentValue = data;
-                console.log(data);
             },
+
             error: (e) => console.error(e),
         });
     }
@@ -48,13 +46,9 @@ export class ValueDetailsComponent implements OnInit {
     updatePublished(status: boolean): void {
         const data = {
             // sủa cái này theo table
-            tenhang: this.currentValue.tenhang,
-            gia_hung: this.currentValue.gia_hung,
-            soluong: this.currentValue.soluong,
-            ngaynhap: this.currentValue.ngaynhap,
-            loaihang: this.currentValue.loaihang,
-
-            // published: status,
+            hoten: this.currentValue.hoten,
+            tenbomon: this.currentValue.tenbomon,
+            hesoluong: this.currentValue.hesoluong,
         };
 
         this.message = '';
@@ -75,7 +69,7 @@ export class ValueDetailsComponent implements OnInit {
         this.message = '';
 
         this.valueService
-            .update(this.currentValue.id, this.currentValue)
+            .update(this.currentValue.magv, this.currentValue)
             .subscribe({
                 next: (res) => {
                     console.log(res);
@@ -88,7 +82,7 @@ export class ValueDetailsComponent implements OnInit {
     }
 
     deleteValue(): void {
-        this.valueService.delete(this.currentValue.id).subscribe({
+        this.valueService.delete(this.currentValue.magv).subscribe({
             next: (res) => {
                 console.log(res);
                 this.router.navigate(['/values']);

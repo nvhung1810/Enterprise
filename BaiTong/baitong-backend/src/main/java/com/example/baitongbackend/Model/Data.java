@@ -1,95 +1,72 @@
 package com.example.baitongbackend.Model;
 
 import javax.persistence.*;
-import java.util.Date;
 
 @Entity
-@Table(name = "data")
+@Table(name = "quanlygiangvien")
 public class Data {
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
-    private long id;
+    private long magv;
 
-    @Column(name = "tenhang")
-    private String tenhang;
+    @Column(name = "hoten")
+    private String hoten;
 
-    @Column(name = "gia_hung")
-    private Float gia_hung;
+    @Column(name = "tenbomon")
+    private String tenbomon;
 
-    @Column(name = "soluong")
-    private Float soluong;
+    @Column(name = "hesoluong")
+    private Float hesoluong;
 
-    @Column(name = "ngaynhap")
-    private Date ngaynhap;
-
-    @Column(name = "loaihang")
-    private String loaihang;
+    public Data(String hoten, String tenbomon, Float hesoluong) {
+        this.hoten = hoten;
+        this.tenbomon = tenbomon;
+        this.hesoluong = hesoluong;
+    }
 
     public Data() {
+
     }
 
-    public Data(String tenhang, Float gia_hung, Float soluong, Date ngaynhap, String loaihang) {
-        this.tenhang = tenhang;
-        this.gia_hung = gia_hung;
-        this.soluong = soluong;
-        this.ngaynhap = ngaynhap;
-        this.loaihang = loaihang;
+    public long getMagv() {
+        return magv;
     }
 
-    public long getId() {
-        return id;
+    public void setMagv(long magv) {
+        this.magv = magv;
     }
 
-    public String getTenhang() {
-        return tenhang;
+    public String getHoten() {
+        return hoten;
     }
 
-    public void setTenhang(String tenhang) {
-        this.tenhang = tenhang;
+    public void setHoten(String hoten) {
+        this.hoten = hoten;
     }
 
-    public Float getGia_hung() {
-        return gia_hung;
+    public String getTenbomon() {
+        return tenbomon;
     }
 
-    public void setGia_hung(Float gia_hung) {
-        this.gia_hung = gia_hung;
+    public void setTenbomon(String tenbomon) {
+        this.tenbomon = tenbomon;
     }
 
-    public Float getSoluong() {
-        return soluong;
+    public Float getHesoluong() {
+        return hesoluong;
     }
 
-    public void setSoluong(Float soluong) {
-        this.soluong = soluong;
-    }
-
-    public Date getNgaynhap() {
-        return ngaynhap;
-    }
-
-    public void setNgaynhap(Date ngaynhap) {
-        this.ngaynhap = ngaynhap;
-    }
-
-    public String getLoaihang() {
-        return loaihang;
-    }
-
-    public void setLoaihang(String loaihang) {
-        this.loaihang = loaihang;
+    public void setHesoluong(Float hesoluong) {
+        this.hesoluong = hesoluong;
     }
 
     @Override
     public String toString() {
         return "Data{" +
-                "id=" + id +
-                ", tenhang='" + tenhang + '\'' +
-                ", gia_hung=" + gia_hung +
-                ", soluong=" + soluong +
-                ", ngaynhap=" + ngaynhap +
-                ", loaihang='" + loaihang + '\'' +
+                "magv=" + magv +
+                ", hoten='" + hoten + '\'' +
+                ", tenbomon='" + tenbomon + '\'' +
+                ", hesoluong=" + hesoluong +
                 '}';
     }
-
 }

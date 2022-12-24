@@ -9,6 +9,7 @@ import com.example.baitongbackend.Model.Data;
 import com.example.baitongbackend.Repository.DataRepository;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.repository.query.Param;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.CrossOrigin;
@@ -32,15 +33,15 @@ public class DataController {
 
     @GetMapping("/values")
 //    Sửa string title theo giá tị cần tìm kiếm
-    public ResponseEntity<List<Data>> getAllValues(@RequestParam(required = false) String tenhang) {
+    public ResponseEntity<List<Data>> getAllValues(     @RequestParam(required = false)
+                                                        String keyword)
+    {
         try {
             List<Data> values = new ArrayList<>();
-
-            if (tenhang == null)
+            if (keyword == null)
                 values.addAll(dataRepository.findAll());
             else
-//                sửa theo findby... ở bên repository
-                values.addAll(dataRepository.findByTenhangContaining(tenhang));
+                values.addAll(dataRepository.search(keyword));
 
             if (values.isEmpty()) {
                 return new ResponseEntity<>(HttpStatus.NO_CONTENT);
@@ -67,11 +68,9 @@ public class DataController {
 //            sửa get theo table
             Data _value = dataRepository
                     .save(new Data(
-                            value.getTenhang(),
-                            value.getGia_hung(),
-                            value.getSoluong(),
-                            value.getNgaynhap(),
-                            value.getLoaihang()));
+                            value.getHoten(),
+                            value.getTenbomon(),
+                            value.getHesoluong()));
             return new ResponseEntity<>(_value, HttpStatus.CREATED);
         } catch (Exception e) {
             return new ResponseEntity<>(null, HttpStatus.INTERNAL_SERVER_ERROR);
@@ -85,11 +84,9 @@ public class DataController {
         if (valueData.isPresent()) {
             Data _value = valueData.get();
 //            sửa get det theo table
-            _value.setTenhang(value.getTenhang());
-            _value.setGia_hung(value.getGia_hung());
-            _value.setSoluong(value.getSoluong());
-            _value.setNgaynhap(value.getNgaynhap());
-            _value.setLoaihang(value.getLoaihang());
+            _value.setHoten(value.getHoten());
+            _value.setTenbomon(value.getTenbomon());
+            _value.setHesoluong(value.getHesoluong());
 
 //            ---------------------------------------
             return new ResponseEntity<>(dataRepository.save(_value), HttpStatus.OK);
@@ -118,19 +115,4 @@ public class DataController {
         }
 
     }
-
-//    @GetMapping("/values/published")
-//    public ResponseEntity<List<Values>> findByPublished() {
-//        try {
-//            List<Values> values = dataRepository.findByPublished(true);
-//
-//            if (values.isEmpty()) {
-//                return new ResponseEntity<>(HttpStatus.NO_CONTENT);
-//            }
-//            return new ResponseEntity<>(values, HttpStatus.OK);
-//        } catch (Exception e) {
-//            return new ResponseEntity<>(HttpStatus.INTERNAL_SERVER_ERROR);
-//        }
-//    }
-
 }

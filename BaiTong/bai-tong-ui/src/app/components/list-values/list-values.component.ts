@@ -23,7 +23,6 @@ export class ListValuesComponent implements OnInit {
         this.valueService.getAll().subscribe({
             next: (data) => {
                 this.values = data;
-                console.log(data);
             },
             error: (e) => console.error(e),
         });
@@ -36,18 +35,10 @@ export class ListValuesComponent implements OnInit {
     }
 
     setActiveValue(value: Value, index: number): void {
-        this.currentValue = value;
+        this.currentValue = {
+            ...value,
+        };
         this.currentIndex = index;
-    }
-
-    removeAllValues(): void {
-        this.valueService.deleteAll().subscribe({
-            next: (res) => {
-                console.log(res);
-                this.refreshList();
-            },
-            error: (e) => console.error(e),
-        });
     }
 
     searchTitle(): void {

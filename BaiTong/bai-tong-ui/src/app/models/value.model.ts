@@ -1,11 +1,6 @@
 export class Value {
-    id?: any;
-    tenhang?: string;
-    gia_hung?: number;
-    soluong?: number;
-    ngaynhap?: string;
-    loaihang?: string;
-    // ispub?: boolean;
+    magv?: any;
+    hoten?: string;
+    tenbomon?: string;
+    hesoluong?: number;
 }
-
-// Sửa cái này theo model bên spring

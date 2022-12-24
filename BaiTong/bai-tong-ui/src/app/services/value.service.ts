@@ -38,6 +38,6 @@ export class ValueService {
 
     findByTitle(sreachValue: any): Observable<Value[]> {
         // Sửa cái tenhang theo giá trị cần tìm kiếm
-        return this.http.get<Value[]>(`${baseUrl}?tenhang=${sreachValue}`);
+        return this.http.get<Value[]>(`${baseUrl}?keyword=${sreachValue}`);
     }
 }

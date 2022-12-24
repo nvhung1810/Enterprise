@@ -1,61 +1,25 @@
 <div>
     <div class="submit-form">
         <div *ngIf="!submitted">
-            <div class="form-group f">
-                <label class="l" for="tenhang">Tên Hàng</label>
-                <input
-                    type="text"
-                    class="form-control"
-                    id="tenhang"
-                    required
-                    [(ngModel)]="value.tenhang"
-                    name="tenhang"
-                />
+            <div class="flex">
+                <div class="form-group f col-md-5">
+                    <label class="l" for="hoten">Họ Tên</label>
+                    <input type="text" class="form-control" id="hoten" required [(ngModel)]="value.hoten"
+                        name="hoten" />
+                </div>
+
+                <div class="form-group f col-md-5">
+                    <label class="l" for="tenbomon">Tên Bộ Môn</label>
+                    <input class="form-control" id="tenbomon" required [(ngModel)]="value.tenbomon" name="tenbomon" />
+                </div>
             </div>
 
-            <div class="form-group f">
-                <label class="l" for="gia_hung">Giá Hàng</label>
-                <input
-                    class="form-control"
-                    id="gia_hung"
-                    required
-                    [(ngModel)]="value.gia_hung"
-                    name="gia_hung"
-                />
-            </div>
-
-            <div class="form-group f">
-                <label class="l" for="soluong">Số Lượng</label>
-                <input
-                    class="form-control"
-                    id="soluong"
-                    required
-                    [(ngModel)]="value.soluong"
-                    name="soluong"
-                />
-            </div>
-
-            <div class="form-group f">
-                <label class="l" for="ngaynhap">Ngày Nhập</label>
-                <input
-                    class="form-control"
-                    id="ngaynhap"
-                    type="date"
-                    required
-                    [(ngModel)]="value.ngaynhap"
-                    name="ngaynhap"
-                />
-            </div>
-
-            <div class="form-group f">
-                <label class="l" for="loaihang">Loại Hàng</label>
-                <input
-                    class="form-control"
-                    id="loaihang"
-                    required
-                    [(ngModel)]="value.loaihang"
-                    name="loaihang"
-                />
+            <div class="flex">
+                <div class="form-group f col-md-5">
+                    <label class="l" for="hesoluong">Hệ Số Lương</label>
+                    <input class="form-control" id="hesoluong" required [(ngModel)]="value.hesoluong"
+                        name="hesoluong" />
+                </div>
             </div>
 
             <button (click)="saveTutorial()" class="btn btn-success b">
@@ -67,6 +31,9 @@
             <h4>Thêm dữ liệu thành công!</h4>
             <button class="btn btn-success" (click)="newTutorial()">
                 THÊM DỮ LIỆU MỚI
+            </button>
+            <button class="btn btn-primary">
+                <a routerLink="../values" class="nav-link">Về trang danh sách thông tin</a>
             </button>
         </div>
     </div>
